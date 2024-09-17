@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+int main() {
+int cuenta;
+float profR = 4.50;
+float profN = 15.00;
+float basicR = 20.50;
+float basicN = 75.00;
+float premR = 7.50;
+float premN = 50.00;
+  float en = 0.0;
+
+  int res=0;
+  int a=0;
+  char resid; 
+  int conex;
+  int conexp;
+
+  cout<<"Ingrese la cuenta"<<endl;
+  cin>>cuenta;
+  cout<<"Ingrese el tipo de cliente"<<endl;
+  cin>>resid;
+  switch(resid){
+    case 'R':{
+      cout<<"Ingrese el numero de conexiones de servcio basico"<<endl;
+      cin>>conex;
+      cout<<"Ingrese el numero de conexiones premium"<<endl;
+      cin>>conexp;
+
+       int fina = profR + (conex * basicR) + (conexp * premR);
+      cout<<"El total a pagar es: "<< fina<<endl;
+         break;
+       }
+    case 'N':{
+      cout<<"Ingrese el numero de conexiones de servicio basico"<<endl;
+      cin>>conex;
+      cout<<"Ingrese el numero de conexiones premium"<<endl;
+      cin>>conexp;
+      if(conex>=10){
+         res = conex%10;
+         en = res*5.00; 
+        cout<<res<<",,"<<en<<".."<<a<<"--"<<endl;
+      }
+      float total = profN + (conexp * premN) + basicN + en;
+      cout<<"El numero de cuenta  = "<<cuenta<<" El total a pagar es: $"<<total<<endl;
+      break;
+    }
+
+
+
+
+    
+  }
+  
+}  
+
+
+
+
+
+
+  
