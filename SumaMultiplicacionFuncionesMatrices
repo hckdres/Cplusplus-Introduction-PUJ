@@ -1,0 +1,155 @@
+#include <iostream>
+using namespace std;
+const int c = 3;
+const int f = 3;
+void IngresarDatos2x2(int matriz1[f][c], int matriz2[f][c]);
+void IngresarDatos3x3(int matriz1[f][c], int matriz2[f][c]);
+void suma(int matriz1[f][c], int matriz2[f][c]);
+void suma3(int matriz1[f][c], int matriz2[f][c]);
+void multiplicar(int matriz1[f][c], int matriz2[f][c]);
+void multiplicar3 (int matriz1[f][c], int matriz2[f][c]);
+int main() {
+  int matriz1[f][c], matriz2[f][c];
+  int q,a;
+  cout << "Ingrese 1 para la de 2x2 y 2 la 3x3"<<endl;
+  cin>>a;
+  cout<<"Ingrese los datos"<<endl;
+  switch(a){
+case 1:{
+  IngresarDatos2x2(matriz1,matriz2);
+  while(true){
+    cout<<"Que desea hacer con la matriz?"<<endl<<"1. Sumar matrices"<<endl<<"2. Multiplicar matrices"<<endl<<"3. Salir"<<endl;
+    cin>>q;
+    switch(q){
+      case 1:{
+      suma(matriz1,matriz2);
+      break;
+    }
+      case 2:{
+      multiplicar(matriz1,matriz2);
+        break;
+      }
+      case 3:{
+      cout<<"Salistes"<<endl;
+          return 0;
+        }
+      }
+    }
+}
+ case 2:{
+   cout<<"Ingrese datos en la 3x3"<<endl;
+   IngresarDatos3x3(matriz1,matriz2);
+   while(true){
+     cout<<"Que desea hacer con la matriz?"<<endl<<"1. Sumar matrices"<<endl<<"2. Multiplicar matrices"<<endl<<"3. Salir"<<endl;
+     cin>>q;
+     switch(q){
+        case 1:{
+       suma3(matriz1,matriz2);
+        break;
+     }
+        case 2:{
+         multiplicar3(matriz1,matriz2);
+         break;
+       }
+        case 3:{
+         cout<<"Salistes"<<endl;
+           return 0;
+          }
+        }
+      }
+    }   
+  }
+}
+void IngresarDatos2x2(int matriz1[f][c], int matriz2[f][c]){
+
+  cout<<"Ingrese que los datos de  2x2 "<<endl;
+for(int i=0;i<f-1;i++){
+  for(int j=0;j<c-1;j++){
+    cout<<"Ingrese el valor de la posicion ["<<i<<"]["<<j<<"]"<<endl;
+    cin>>matriz1[i][j];
+  }
+}
+cout<<"Ingrese que los datos de la otra matriz 2x2 "<<endl;
+    for(int i=0;i<f-1;i++){
+      for(int j=0;j<c-1;j++){
+        cout<<"Ingrese el valor de la posicion ["<<i<<"]["<<j<<"]"<<endl;
+        cin>>matriz2[i][j];
+      }
+    }
+}
+void IngresarDatos3x3(int matriz1[f][c], int matriz2[f][c]){
+for(int i=0;i<f;i++){
+  for(int j=0;j<c;j++){
+    cout<<"Ingrese el valor de la posicion ["<<i<<"]["<<j<<"]"<<endl;
+    cin>>matriz1[i][j];
+  }
+}
+cout<<"Ingrese que los datos de la otra matriz 3x3 "<<endl;
+    for(int i=0;i<f;i++){
+      for(int j=0;j<c;j++){
+        cout<<"Ingrese el valor de la posicion ["<<i<<"]["<<j<<"]"<<endl;
+        cin>>matriz2[i][j];
+      }
+    }
+}
+void suma(int matriz1[f][c], int matriz2[f][c]){
+  int matriz3[f][c];
+  cout<<"Esta  es la 2x2"<<endl;
+  for(int i=0;i<f-1;i++){
+    for(int j=0;j<c-1;j++)
+      {
+        matriz3[i][j]=matriz1[i][j]+matriz2[i][j];
+      }
+  }
+  cout<<"Asi quedo la 2x2"<<endl;{
+    for(int i=0;i<f-1;i++){
+      for(int j=0;j<c-1;j++){
+        cout<<"["<<matriz3[i][j]<<" ] ";
+      }
+      cout<<endl;
+    }                                                     
+  }
+}
+void multiplicar(int matriz1[f][c], int matriz2[f][c]){
+  int matriz3[f][c];
+  cout<<"Esta  es la 2x2"<<endl;
+  for(int i=0;i<f-1;i++){
+    for(int j=0;j<c-1;j++){
+      matriz3[i][j]=matriz1[i][j]*matriz1[i][j];
+      cout<<"["<<matriz3[i][j]<<" ] ";
+    }
+    cout<<endl;
+  }
+}
+void suma3(int matriz1[f][c], int matriz2[f][c]){
+  int matriz3[f][c];
+  cout<<"Esta  es la 3x3"<<endl;
+  for(int i=0;i<f;i++){
+    for(int j=0;j<c;j++)
+      {
+        matriz3[i][j]=matriz1[i][j]+matriz2[i][j];
+      }
+  }
+  cout<<"Asi quedo la 3x3"<<endl;{
+    for(int i=0;i<f;i++){
+      for(int j=0;j<c;j++){
+        cout<<"["<<matriz3[i][j]<<" ] ";
+      }
+      cout<<endl;
+    }
+  }
+
+}
+void multiplicar3(int matriz1[f][c], int matriz2[f][c]){
+  int matriz33[f][c];
+  cout<<"Esta es la 3x3"<<endl;
+  for(int i=0;i<f;i++){
+    for(int j=0;j<c;j++){
+      matriz33[i][j]=matriz2[i][j]*matriz2[i][j];
+      cout<<"["<<matriz33[i][j]<<" ] ";
+    }
+    cout<<endl;
+  }
+
+
+}
