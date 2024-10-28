@@ -1,0 +1,65 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+string nombredeLarchivo; 
+string frase;
+
+void escribir();
+void lectura();
+
+int main() {
+    char a;
+    while(true){
+        cout << "Digite el nombre del archivo (Ej. Lunes, Martes, etc.): ";
+        getline(cin, nombredeLarchivo);
+
+        // Llamamos a las funciones para escribir y luego leer el archivo
+        escribir();
+        lectura();
+
+        cout << "¿Desea salir? (s/n): ";
+        cin >> a;
+        
+        // Limpiamos el búfer de entrada después de usar 'cin'
+        cin.ignore();
+
+        if(a == 's') {
+            break;  // Salimos del ciclo while si el usuario elige 's'
+        }
+    }
+    return 0;
+}
+
+void escribir() {
+    ofstream archivo;
+
+    // Intentamos abrir el archivo en modo de salida, lo que sobrescribirá su contenido
+    archivo.open(nombredeLarchivo.c_str(), ios::out);
+    if (archivo.fail()) {
+        cout << "No se pudo abrir el archivo." << endl;
+        exit(1);  // Salida en caso de error
+    }
+
+    cout << "Digite lo que desea escribir en el dia " << nombredeLarchivo << ": ";
+    getline(cin, frase);
+    archivo << frase;
+    archivo.close();
+}
+
+void lectura() {
+    ifstream archivo;
+
+    archivo.open(nombredeLarchivo.c_str(), ios::in);
+    if (archivo.fail()) {
+        cout << "No se pudo abrir el archivo." << endl;
+        exit(1);  // Salida en caso de error
+    }
+
+    string linea;
+    while (getline(archivo, linea)) {
+        cout << linea << endl;
+    }
+    archivo.close();
+}
